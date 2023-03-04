@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit Note</title>>
+</head>
+<body>
+
+<form action="#" th:action="@{/save}" th:object="${note}"
+      method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="text" th:field="*{text}" placeholder="Note text">
+    <button type="submit"> Update Note</button>
+</form>
+
+<hr>
+
+<a th:href="@{/}"> Back to Note List</a>
+</body>
+</html>
