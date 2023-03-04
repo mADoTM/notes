@@ -1,4 +1,4 @@
-package ru.severstal.notes.model;
+package ru.severstal.notes.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,15 +6,15 @@ import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
-@Entity(name = "note")
+@Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 public class Note {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String text;
