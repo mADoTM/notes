@@ -2,29 +2,35 @@ package ru.severstal.notes.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.severstal.notes.model.Note;
+import ru.severstal.notes.entity.Note;
 import ru.severstal.notes.repository.NoteRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class NoteService {
     private final NoteRepository noteRepository;
 
-    public Iterable<Note> all() {
-        return noteRepository.findAll();
+    public List<Note> all() {
+        return (List<Note>) noteRepository.findAll();
     }
 
-    public Note getById(int id) {
+    public Note getById(long id) {
         return noteRepository
                 .findById(id)
                 .orElseGet(Note::new);
     }
 
-    public Note saveNote(Note note) {
-        return noteRepository.save(note);
+    public void saveNote(Note note) {
+        noteRepository.save(note);
     }
 
     public void deleteNote(Note note) {
         noteRepository.delete(note);
+    }
+
+    public void deleteById(long id) {
+        noteRepository.deleteById(id);
     }
 }

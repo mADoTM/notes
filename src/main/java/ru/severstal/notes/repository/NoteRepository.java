@@ -1,7 +1,7 @@
 package ru.severstal.notes.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import ru.severstal.notes.model.Note;
+import ru.severstal.notes.entity.Note;
 
-public interface NoteRepository extends CrudRepository<Note, Integer> {
+public interface NoteRepository extends CrudRepository<Note, Long> {
 }
